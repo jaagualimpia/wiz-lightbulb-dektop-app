@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>WiZ Bulb Control</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>Control de Bombilla WiZ</h1>
+
+    <section class="card">
+      <label for="ip-input">Dirección IP</label>
+      <div class="row">
+        <input type="text" id="ip-input" placeholder="192.168.1.5" />
+        <button id="discover-btn">Buscar en la red</button>
+      </div>
+      <p id="discovery-status" class="hint"></p>
+    </section>
+
+    <section class="card">
+      <div class="row space-between">
+        <span>Encendido</span>
+        <label class="switch">
+          <input type="checkbox" id="power-toggle" />
+          <span class="slider-toggle"></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="card">
+      <label for="dimming-slider">Brillo: <span id="dimming-value">50</span>%</label>
+      <input type="range" id="dimming-slider" min="1" max="100" value="50" />
+    </section>
+
+    <section class="card">
+      <label for="color-picker">Color</label>
+      <input type="color" id="color-picker" value="#ffffff" />
+    </section>
+
+    <section class="card">
+      <label for="temp-slider">Temperatura de color: <span id="temp-value">4000</span>K</label>
+      <input type="range" id="temp-slider" min="2200" max="6500" step="100" value="4000" />
+    </section>
+
+    <section class="card">
+      <button id="refresh-btn">Actualizar estado</button>
+      <pre id="state-output" class="state-output"></pre>
+    </section>
+  </main>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #1a1a1e;
+  color: #f0f0f0;
+  margin: 0;
+  padding: 24px;
+}
+
+h1 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #26262c;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #c8c8cc;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+.row.space-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[type='text'] {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #3a3a42;
+  background: #1a1a1e;
+  color: #f0f0f0;
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #4a7dff;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #3a6bef;
+}
+
+button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+input[type='range'] {
+  width: 100%;
+}
+
+input[type='color'] {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+}
+
+.hint {
+  font-size: 12px;
+  color: #8a8a92;
+  margin: 8px 0 0;
+}
+
+.state-output {
+  font-size: 12px;
+  background: #1a1a1e;
+  padding: 10px;
+  border-radius: 8px;
+  overflow-x: auto;
+  min-height: 20px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider-toggle {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #555;
+  transition: 0.2s;
+  border-radius: 26px;
+}
+
+.slider-toggle::before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.2s;
+  border-radius: 50%;
+}
+
+input:checked + .slider-toggle {
+  background-color: #4a7dff;
+}
+
+input:checked + .slider-toggle::before {
+  transform: translateX(22px);
+}
