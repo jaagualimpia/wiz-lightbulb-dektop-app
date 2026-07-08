@@ -8,9 +8,12 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^7.11.2",
     "electron": "^43.1.0"
   }
 }
