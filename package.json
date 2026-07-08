@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Test Electron desktop app to control a phillips wiz bulb ",
   "license": "ISC",
-  "author": "jaagualimpia",
+  "author": "Jorge Andrés Agualimpia Caicedo jaagualimpia@hotmail.com",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
