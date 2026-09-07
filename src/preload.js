@@ -9,7 +9,14 @@ contextBridge.exposeInMainWorld('wizApi', {
   discover: () => ipcRenderer.invoke('wiz:discover'),
   getConfig: () => ipcRenderer.invoke('config:get'),
   saveConfig: (config) => ipcRenderer.invoke('config:save', config),
+  getDefaultSettings: () => ipcRenderer.invoke('settings:getDefaults'),
+  updateSettings: (settings) => ipcRenderer.invoke('settings:update', settings),
   onDiscoveryProgress: (callback) => {
     ipcRenderer.on('wiz:discoveryProgress', (_event, data) => callback(data));
+  },
+  onStateChanged: (callback) => {
+    const listener = (_event, state) => callback(state);
+    ipcRenderer.on('wiz:stateChanged', listener);
+    return () => ipcRenderer.removeListener('wiz:stateChanged', listener);
   },
 });

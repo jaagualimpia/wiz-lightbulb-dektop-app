@@ -10,6 +10,11 @@ body {
   padding: 24px;
 }
 
+main {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
 h1 {
   font-size: 20px;
   margin-bottom: 20px;
@@ -39,11 +44,44 @@ label {
   align-items: center;
 }
 
+.control-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 7px;
+  border: 1px solid #464650;
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  background: #1d1d22;
+  color: #aaaab4;
+  font-family: inherit;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+kbd:empty {
+  display: none;
+}
+
 input[type='text'] {
   flex: 1;
   padding: 8px 10px;
   border-radius: 8px;
   border: 1px solid #3a3a42;
+  background: #1a1a1e;
+  color: #f0f0f0;
+}
+
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #3a3a42;
+  border-radius: 8px;
   background: #1a1a1e;
   color: #f0f0f0;
 }
@@ -65,6 +103,16 @@ button:hover {
 button:disabled {
   background: #555;
   cursor: not-allowed;
+}
+
+.secondary-button {
+  border: 1px solid #464650;
+  background: transparent;
+  color: #d8d8dc;
+}
+
+.secondary-button:hover {
+  background: #34343c;
 }
 
 input[type='range'] {
@@ -135,4 +183,89 @@ input:checked + .slider-toggle {
 
 input:checked + .slider-toggle::before {
   transform: translateX(22px);
+}
+
+.settings-card summary {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.settings-card[open] summary {
+  margin-bottom: 12px;
+}
+
+.settings-hint {
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+
+.shortcut-grid,
+.settings-options {
+  display: grid;
+  grid-template-columns: minmax(125px, 0.8fr) minmax(180px, 1.2fr);
+  align-items: center;
+  gap: 10px 12px;
+}
+
+.shortcut-grid label,
+.settings-options label {
+  margin: 0;
+}
+
+.shortcut-input {
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+}
+
+.shortcut-input:focus {
+  border-color: #4a7dff;
+  outline: 2px solid rgba(74, 125, 255, 0.25);
+}
+
+.shortcut-input.recording {
+  color: #8fb0ff;
+}
+
+.settings-options {
+  margin-top: 16px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.checkbox-row input {
+  width: 16px;
+  height: 16px;
+  accent-color: #4a7dff;
+}
+
+.settings-actions {
+  flex-wrap: wrap;
+}
+
+#settings-status.success {
+  color: #65c98d;
+}
+
+#settings-status.error {
+  color: #ef8181;
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 16px;
+  }
+
+  .shortcut-grid,
+  .settings-options {
+    grid-template-columns: 1fr;
+  }
 }

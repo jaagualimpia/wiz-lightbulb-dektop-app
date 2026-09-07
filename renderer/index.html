@@ -20,7 +20,7 @@
 
     <section class="card">
       <div class="row space-between">
-        <span>Encendido</span>
+        <span>Encendido <kbd id="power-shortcut-hint"></kbd></span>
         <label class="switch">
           <input type="checkbox" id="power-toggle" />
           <span class="slider-toggle"></span>
@@ -29,7 +29,10 @@
     </section>
 
     <section class="card">
-      <label for="dimming-slider">Brillo: <span id="dimming-value">50</span>%</label>
+      <label for="dimming-slider" class="control-label">
+        <span>Brillo: <span id="dimming-value">50</span>%</span>
+        <kbd id="dimming-shortcut-hint"></kbd>
+      </label>
       <input type="range" id="dimming-slider" min="1" max="100" value="50" />
     </section>
 
@@ -39,9 +42,61 @@
     </section>
 
     <section class="card">
-      <label for="temp-slider">Temperatura de color: <span id="temp-value">4000</span>K</label>
+      <label for="temp-slider" class="control-label">
+        <span>Temperatura de color: <span id="temp-value">4000</span>K</span>
+        <kbd id="temperature-shortcut-hint"></kbd>
+      </label>
       <input type="range" id="temp-slider" min="2200" max="6500" step="100" value="4000" />
     </section>
+
+    <details class="card settings-card">
+      <summary>Atajos y preferencias</summary>
+      <p class="hint settings-hint">Selecciona un campo y presiona la combinación que quieras usar. Usa Supr para desactivarlo.</p>
+
+      <div class="shortcut-grid">
+        <label for="shortcut-toggle-power">Encender/apagar</label>
+        <input type="text" id="shortcut-toggle-power" class="shortcut-input" readonly />
+
+        <label for="shortcut-temperature-up">Temperatura +</label>
+        <input type="text" id="shortcut-temperature-up" class="shortcut-input" readonly />
+
+        <label for="shortcut-temperature-down">Temperatura −</label>
+        <input type="text" id="shortcut-temperature-down" class="shortcut-input" readonly />
+
+        <label for="shortcut-dimming-up">Brillo +</label>
+        <input type="text" id="shortcut-dimming-up" class="shortcut-input" readonly />
+
+        <label for="shortcut-dimming-down">Brillo −</label>
+        <input type="text" id="shortcut-dimming-down" class="shortcut-input" readonly />
+      </div>
+
+      <div class="settings-options">
+        <label for="temperature-step">Incremento de temperatura</label>
+        <select id="temperature-step">
+          <option value="100">100 K</option>
+          <option value="200">200 K</option>
+          <option value="500">500 K</option>
+        </select>
+
+        <label for="dimming-step">Incremento de brillo</label>
+        <select id="dimming-step">
+          <option value="5">5%</option>
+          <option value="10">10%</option>
+          <option value="20">20%</option>
+        </select>
+      </div>
+
+      <label class="checkbox-row">
+        <input type="checkbox" id="feedback-enabled" />
+        Mostrar indicador flotante
+      </label>
+
+      <div class="row settings-actions">
+        <button id="save-settings-btn">Guardar preferencias</button>
+        <button id="reset-settings-btn" class="secondary-button">Restaurar</button>
+      </div>
+      <p id="settings-status" class="hint" role="status"></p>
+    </details>
 
     <section class="card">
       <button id="refresh-btn">Actualizar estado</button>
